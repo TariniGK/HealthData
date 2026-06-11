@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    database: HEALTH_FIRST_DEV
+    schema: BCBS
+
+    tables:
+      - name: TMP_BCBS_CLAIMS
+        description: Raw claims data loaded from ADF
+
+      - name: TMP_BCBS_MEMBERS
+        description: Raw member data loaded from ADF
+
+      - name: TMP_BCBS_ELIGIBILITY
+        description: Raw Eligibility Data loaded from ADF 

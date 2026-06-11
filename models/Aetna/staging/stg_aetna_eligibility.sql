@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('raw','TMP_AETNA_ELIGIBILITY')}}
