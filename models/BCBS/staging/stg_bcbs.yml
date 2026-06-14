@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: stg_bcbs_members
+    description: ""
+
+    columns:
+      - name: member_id
+        data_type: varchar
+        description: "Des"
+        tests:
+          - unique
+          - not_null
+
+      - name: gender
+        data_type: varchar
+        description: "Standardized gender codes"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['M', 'F']
+
+      - name: email
+        data_type: varchar
+        description: "Customer email address"
+        tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "email REGEXP '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$'"
+
+  - name: stg_bcbs_claims
+    description: "Describes the aetna claims"
+
+    columns:
+      - name: claim_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: member_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+
+      - name: provider_id
+        data_type: varchar
+        description: ""
+        tests:
+          - not_null
+      
+      - name: service_date
+        tests:
+          - not_null
+             
+
+      - name: claim_amount
+        tests:
+          - not_null
+
+      - name: paid_amount
+        tests:
+          - not_null
+
+      - name: claim_status
+        data_type: varchar
+        description: ""
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['PAID', 'DENIED', 'PENDING']
+      
+        
+             
+       
+          

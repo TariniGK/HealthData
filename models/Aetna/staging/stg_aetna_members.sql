@@ -11,7 +11,7 @@ renamed as (
     else 'UNKNOWN' end as gender,
     upper(trim(cast(state as varchar))) as state,
     lower(cast(email as varchar)) as email,
-    cast(cast(phone as bigint)as varchar) as phone_number,
+    coalesce(cast(cast(phone as bigint)as varchar),'UNKNOWN') as phone_number,
     load_sk,
     run_pipeline_id,
     current_timestamp() as dw_inserted_at
@@ -28,4 +28,6 @@ dedup as (
 
 
 select * from dedup
+
+
 
