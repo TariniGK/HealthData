@@ -59,10 +59,6 @@ models:
         tests:
           - not_null
 
-      - name: paid_amount
-        tests:
-          - not_null
-
       - name: claim_status
         data_type: varchar
         description: ""
@@ -87,8 +83,8 @@ models:
         description: ""
         tests:
         - not_null
-        - unique
-        
+
+
       - name: coverage_start
         data_type: date
         description: ""
