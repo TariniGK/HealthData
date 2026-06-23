@@ -38,7 +38,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   healthInsurance:
     Aetna:
-      +schema: AETNA
+      +schema: Aetna
       staging:
         +materialized: view
       int:
