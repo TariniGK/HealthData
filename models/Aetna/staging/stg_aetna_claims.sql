@@ -1,4 +1,3 @@
--- Describes the aetna claims
 with source_data as (
     select * from {{ source('raw','TMP_AETNA_CLAIMS')}}
 ),
